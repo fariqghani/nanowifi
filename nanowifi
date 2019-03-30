@@ -1,0 +1,19 @@
+#include <SoftwareSerial.h> // or Software Serial on Uno, Nano...
+//#define EspSerial Serial1 // uncomment if Hardware Serial on Mega, Leonardo, Micro...
+#define ESP8266_BAUD 9600
+
+SoftwareSerial EspSerial(2, 3); // RX, TX
+
+char auth[] = "*******"; //please key in your Blynk Auth Token
+
+char ssid[] = "......";  //please key in your wifi SSD
+char pass[] = "********"; //please key in your wifi password. Set password to "" for open networks
+
+void setup()
+{
+}
+
+void loop()
+{
+}
+
