@@ -1,6 +1,10 @@
 #include <SoftwareSerial.h> // or Software Serial on Uno, Nano...
 //#define EspSerial Serial1 // uncomment if Hardware Serial on Mega, Leonardo, Micro...
+
 #define ESP8266_BAUD 9600
+#define RELAY 5;
+
+int pinValue1 = 0;
 
 SoftwareSerial EspSerial(2, 3); // RX, TX
 
@@ -11,9 +15,20 @@ char pass[] = "********"; //please key in your wifi password. Set password to ""
 
 void setup()
 {
+ Serial.begin(9600);
+  delay(10);
+  EspSerial.begin(ESP8266_BAUD); // Set ESP8266 baud rate
+  delay(10);
+  pinMode(RELAY,OUTPUT);
+  Blynk.begin(auth, wifi, ssid, pass);
 }
 
 void loop()
 {
+Blynk.run();
 }
-
+BLYNK_WRITE(V0)
+{
+  int pinValue1 = param.asInt();
+  digitalWrite(5, !pinValue1);
+}
