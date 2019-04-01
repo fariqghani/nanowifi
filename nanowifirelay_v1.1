@@ -1,7 +1,11 @@
 #include <SoftwareSerial.h> // or Software Serial on Uno, Nano...
+#include <ESP8266_Lib.h>
+#include <BlynkSimpleShieldEsp8266.h>
+
 //#define EspSerial Serial1 // uncomment if Hardware Serial on Mega, Leonardo, Micro...
 
 #define ESP8266_BAUD 9600
+#define BLYNK_PRINT Serial
 #define RELAY 5;
 
 int pinValue1 = 0;
